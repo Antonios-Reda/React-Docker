@@ -8,8 +8,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    
-                    sh 'docker build -t Antonios-Reda/docker-react -f Dockerfile.dev .'
+                
+                    sh 'docker build -t antoniosreda/docker-react -f Dockerfile.dev .'
                 }
             }
         }
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     env.DOCKER_BUILDKIT = 1
-                    sh 'docker run -e CI=true Antonios-Reda/docker-react npm run test'
+                    sh 'docker run -e CI=true antoniosreda/docker-react npm run test'
                 }
             }
         }
